@@ -13,5 +13,5 @@
 
   - fail:
       msg: "Invalid Status"
-    when: ('{{ (item | from_json).status}}' != "OK")
+    when: ('{{ (item | from_json).state}}' != "RUNNING")
     with_items: "{{res.results | map(attribute='stdout') | list }}"
